@@ -11,15 +11,34 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <div class="eyebrow" style="text-align:center">CAIXA</div>
+      <h1 style="text-align:center;margin-top:2px">🍦 Sorveteria</h1>
+      <p style="text-align:center;color:var(--muted);margin-top:-6px">Entre com seu usuário e senha</p>
+      <div class="form" style="grid-template-columns:1fr;margin-top:18px">
+        <div><label>Usuário</label><input id="loginUser" placeholder="Seu usuário" autocomplete="username"></div>
+        <div><label>Senha</label><input id="loginPass" type="password" placeholder="Sua senha" autocomplete="current-password"></div>
+        <button class="finish" id="loginBtn">Entrar</button>
+        <div id="loginError" class="hidden" style="color:var(--danger);font-size:13px;text-align:center"></div>
+      </div>
+      <div id="loginHint" class="hidden" style="margin-top:16px;color:var(--muted);font-size:12px;text-align:center">Primeiro acesso: crie o usuário administrador abaixo.</div>
+    </div>
+  </div>
+
+  <div id="appRoot" class="hidden">
   <header class="topbar">
     <div>
       <div class="eyebrow">CAIXA</div>
       <h1>🍦 Sorveteria</h1>
     </div>
     <div class="top-actions">
+      <span id="currentUserLabel" class="current-user"></span>
       <button class="ghost" id="openReports">📊 Relatórios</button>
       <button class="ghost" id="openProducts">⚙️ Produtos</button>
+      <button class="ghost" id="openUsers">👤 Usuários</button>
       <button class="ghost" id="openSettings">⚖️ Balança</button>
+      <button class="ghost danger" id="logoutBtn">🚪 Sair</button>
     </div>
   </header>
 
@@ -89,6 +108,7 @@
   </div>
 
   <div id="toast" class="toast hidden"></div>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>
