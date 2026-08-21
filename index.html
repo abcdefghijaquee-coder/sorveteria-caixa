@@ -79,22 +79,45 @@
 
       <div class="totals">
         <div><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div>
+        <div class="discount-row"><span>Desconto (R$)</span><input id="discountInput" type="number" min="0" step="0.01" placeholder="0,00" /></div>
         <div class="total"><span>Total</span><strong id="total">R$ 0,00</strong></div>
       </div>
 
       <div class="payment">
-        <h3>Pagamento</h3>
-        <div class="payment-grid">
-          <button data-payment="Dinheiro">Dinheiro</button>
-          <button data-payment="Pix">Pix</button>
-          <button data-payment="Débito">Débito</button>
-          <button data-payment="Crédito">Crédito</button>
+        <div class="payment-head">
+          <h3>Pagamento</h3>
+          <button class="link-btn" id="toggleSplit">Dividir pagamento</button>
         </div>
-        <div id="cashChange" class="cash-change hidden">
-          <label>Valor recebido</label>
-          <input id="cashReceived" type="number" min="0" step="0.01" placeholder="0,00" />
-          <div>Troco: <strong id="change">R$ 0,00</strong></div>
+
+        <div id="singlePayment">
+          <div class="payment-grid">
+            <button data-payment="Dinheiro">Dinheiro</button>
+            <button data-payment="Pix">Pix</button>
+            <button data-payment="Débito">Débito</button>
+            <button data-payment="Crédito">Crédito</button>
+          </div>
+          <div id="cashChange" class="cash-change hidden">
+            <label>Valor recebido</label>
+            <input id="cashReceived" type="number" min="0" step="0.01" placeholder="0,00" />
+            <div>Troco: <strong id="change">R$ 0,00</strong></div>
+          </div>
         </div>
+
+        <div id="splitPayment" class="hidden">
+          <div class="split-form">
+            <select id="splitMethod">
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Pix">Pix</option>
+              <option value="Débito">Débito</option>
+              <option value="Crédito">Crédito</option>
+            </select>
+            <input id="splitValue" type="number" min="0" step="0.01" placeholder="Valor" />
+            <button class="secondary" id="addSplit">Adicionar</button>
+          </div>
+          <div id="splitList" class="split-list"></div>
+          <div id="splitRemaining" class="split-remaining">Falta alocar: R$ 0,00</div>
+        </div>
+
         <button class="finish" id="finishSale">FINALIZAR VENDA</button>
       </div>
     </aside>
